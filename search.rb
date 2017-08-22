@@ -2,9 +2,7 @@ require_relative 'session_setup'
 
 @client = redboothInit
 
-# userArg = ARGV.join(" ").downcase
-userArg = "PM".downcase
-# userARGi = /{userArg}/i
+userArg = ARGV.join(" ").downcase
 
 resultsHash = {"items": []}
 
@@ -15,11 +13,12 @@ results.each do |i|
     results_obj = {
           "type": i['target_type'],
           "title": i['title'],
-          "subtitle": "show '#{i['title']}'",
-          "parent_id": i['parent_id'],
-          "arg": i['target_id']
+          "subtitle": "open '#{i['title']}' in Redbooth",
+          "parent_type": i['parent_type'],
+          "arg": i['parent_id']
         }
     resultsHash[:items].push(results_obj)
   end
 end
+
 puts JSON.generate(resultsHash)
