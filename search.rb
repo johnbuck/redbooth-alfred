@@ -5,29 +5,32 @@ require_relative 'session_setup'
 userArg = ARGV.join(" ")
 resultsHash = {"items": []}
 
-# searches for task with userArg
- tasks = @client.task(:index, name: userArg)
+# results = @client.search(query: userArg)
+resultsRaw = @client.search(query: 'test with john 1')
+results = resultsRaw.response.data
 
-#https://redbooth.com/a/#!/projects/1782546/tasks/32140718
+# .find method does not exist on var searchexit
 
-# searches for tasklist with userArg
-task_lists = @client.task_list(:index, name: userArg) != 0
+# search.find {|i| i['title'] == 'test with john 1'}
 
-# searches for project with userArg
-projects =  @client.project(:index, name: userArg)
-  if projects != 0
+results.each do |i|
+  results_obj = {
+    		"type": i['target_type'],
+    		"title": i['title'],
+    		"subtitle": "show '#{i['title']}'",
+        "parent_id": i['parent_id'],
+    		"arg": i['target_id']
+      }
+  resultsHash[:items].push(results_obj)
+end
 
-# https://redbooth.com/a/#!/projects/1782546/tasks
+searchResults = {"items": []}
+binding.pry
 
-#
-# tasklist_list.each do |tasklist|
-#   list_obj = {
-#     		"type": "file",
-#     		"title": tasklist['name'],
-#     		"subtitle": "Add task to '#{tasklist['name']}'",
-#     		"arg": tasklist['id']
-#       }
-#   resultsHash[:items].push(list_obj)
-# end
+resultsHash.each do |i|
+  if i["title"].include?("test with john 1")
+    searchResults.push(i)
+  end
+end
 
-# puts JSON.generate(taskListsHash)
+puts JSON.generate(searchResults)
