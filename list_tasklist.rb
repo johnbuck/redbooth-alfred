@@ -5,7 +5,6 @@ require_relative 'session_setup'
 project_id = ARGV[0]
 userArg = "tasklists"
 
-#List All Task Lists as Object
 tasklists_collection = @client.task_list(:index, project_id: project_id)
 tasklist_list = tasklists_collection.response.data
 

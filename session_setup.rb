@@ -1,7 +1,9 @@
+require 'rubygems'
+require 'bundler/setup'
 require 'redbooth-ruby'
 require 'json'
 require 'pry'
-require '~/Desktop/redbooth_env'
+require_relative 'redbooth_env'
 
 def redboothInit
     RedboothRuby.config do |configuration|
