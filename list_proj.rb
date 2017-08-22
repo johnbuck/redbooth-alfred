@@ -2,7 +2,6 @@ require_relative 'session_setup'
 
 @client = redboothInit
 
-# userArg = ARGV[0]
 userArg = "projects"
 
 project_collection = @client.project(:index)
@@ -11,7 +10,6 @@ project_list = project_collection.response.data
 
 # UPDATE example that WORKS in redbooth
 # project = client.project(:update, id: 1780950, name: 'NEW SILLINESS')
-
 # organization_id=612416
 # use this id to POST a new project
 
