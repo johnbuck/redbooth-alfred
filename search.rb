@@ -2,14 +2,16 @@ require_relative 'session_setup'
 
 @client = redboothInit
 
-userArg = ARGV.join(" ")
-# userArg = "PM"
+# userArg = ARGV.join(" ").downcase
+userArg = "PM".downcase
+# userARGi = /{userArg}/i
+
 resultsHash = {"items": []}
 
 results = @client.search.response.data
 
 results.each do |i|
-  if i["title"] == userArg
+  if i["title"].downcase == userArg
     results_obj = {
           "type": i['target_type'],
           "title": i['title'],
@@ -20,5 +22,4 @@ results.each do |i|
     resultsHash[:items].push(results_obj)
   end
 end
-
 puts JSON.generate(resultsHash)
