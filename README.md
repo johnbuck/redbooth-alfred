@@ -15,15 +15,30 @@ One Paragraph of project description goes here
 
 ### Installation
 
-* clone the repository
+* Clone the repository
 ```bash
-git clone
-```
-* open the repo in your terminal
+git clone```
+
+* Update Homebrew
 ```bash
-cd ~/Desktop/redbooth-alfred
+brew update
 ```
-* install the gems
+
+* Update Ruby
+```bash
+brew install ruby```
+
+* Install Bundler ( http://bundler.io/ )
+```bash
+gem install bundler```
+
+* Open the workflow in your terminal
+
+	1. Navigate to the Workflow in Alfred and right click
+	2. Click "Open in Terminal"
+
+
+* Install the gems
 ```bash
 bundle install
 ```
@@ -41,10 +56,10 @@ module AuthVars
   Refresh_token = 'your refresh token'
 end
 ```
-* add the your app's return URI registered with Redbooth as an environment variable named 'return_uri'
-* ![screenshot](img/screen1.png)
-* open the 'Redbooth Integration v1' alfred workflow file from the repo dir
-* try out one of the lovely Alfred keywords
+* Add the your app's return URI registered with Redbooth as an environment variable named 'return_uri'
+	* ![screenshot](img/screen1.png)
+	* Open the 'Redbooth Integration v1' alfred workflow file from the repo dir
+* Try out one of the lovely Alfred keywords
 
 ## Known Bugs
 * none recorded at this time
@@ -69,6 +84,7 @@ Copyright (c) 2017 **Pancake Creative**
 
 * **Dominic Brown** - *Initial work* - [GitHub](https://github.com/Umitosan)
 * **Kat Gifford** - *Initial work* - [GitHub](https://github.com/PiKatso)
+* **John Buckingham** - *Revisions* - [GitHub](https://github.com/johnbuck)
 
 ## License
 
