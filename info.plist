@@ -4,6 +4,8 @@
 <dict>
 	<key>bundleid</key>
 	<string>com.alfredapp.rbtest</string>
+	<key>category</key>
+	<string>Tools</string>
 	<key>connections</key>
 	<dict>
 		<key>0A533DC4-B58C-4B23-B61E-DF5EFDB93661</key>
@@ -759,7 +761,7 @@ LANG=en_US.UTF-8 /usr/local/bin/ruby list_proj.rb
 				<key>removeextension</key>
 				<false/>
 				<key>text</key>
-				<string>Added {var:tasklist}!</string>
+				<string>You've created a task! {query}</string>
 				<key>title</key>
 				<string>Added Task!</string>
 			</dict>
@@ -886,7 +888,7 @@ LANG=en_US.UTF-8 /usr/local/bin/ruby list_proj.rb</string>
 # echo TN $taskName TN
 # echo TL $tasklist TL
 
-# LANG=en_US.UTF-8 /usr/local/bin/ruby add_task.rb $project_id $tasklist $taskName</string>
+LANG=en_US.UTF-8 /usr/local/bin/ruby add_task.rb $project_id $tasklist $taskName</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>
@@ -1651,7 +1653,7 @@ echo $request</string>
 		<key>C9538576-DC22-4386-A576-C687CED1385A</key>
 		<dict>
 			<key>xpos</key>
-			<integer>190</integer>
+			<integer>170</integer>
 			<key>ypos</key>
 			<integer>1070</integer>
 		</dict>
