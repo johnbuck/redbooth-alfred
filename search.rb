@@ -2,27 +2,25 @@ require_relative 'session_setup'
 
 @client = redboothInit
 
-userArg = ARGV.join(" ").downcase
+# userArg = ARGV.join(" ").downcase
 # line below for console testing
-# userArg = "Get Sketch Licenses for James and Brian".downcase
+userArg = "ipad".downcase
+
+results = @client.search.response.data
 
 resultsHash = {"items": []}
 
-results = @client.search.response.data
-# puts results
-
 results.each do |i|
-  # this line == is the search query
-  if i["title"].downcase == userArg
+  if i["title"].downcase.include?(userArg)
     results_obj = {
           "type": i['target_type'],
           "title": i['title'],
           "subtitle": "open '#{i['title']}' in Redbooth",
           "parent_type": i['parent_type'],
-          "arg": i['parent_id']
+          "arg": i['parent_id'] #project id
         }
     resultsHash[:items].push(results_obj)
   end
 end
-# puts "results: ", resultsHash
-puts JSON.generate(resultsHash)
+puts "results hash: ", resultsHash
+# puts JSON.generate(resultsHash)
