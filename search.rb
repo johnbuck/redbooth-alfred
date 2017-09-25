@@ -2,9 +2,9 @@ require_relative 'session_setup'
 
 @client = redboothInit
 
-# userArg = ARGV.join(" ").downcase
+userArg = ARGV.join(" ").downcase
 # line below for console testing
-userArg = "ipad".downcase
+# userArg = "ipad pro".downcase
 
 results = @client.search.response.data
 
@@ -16,11 +16,10 @@ results.each do |i|
           "type": i['target_type'],
           "title": i['title'],
           "subtitle": "open '#{i['title']}' in Redbooth",
-          "parent_type": i['parent_type'],
           "arg": i['parent_id'] #project id
         }
     resultsHash[:items].push(results_obj)
   end
 end
-puts "results hash: ", resultsHash
-# puts JSON.generate(resultsHash)
+# puts "results hash: ", resultsHash
+puts JSON.generate(resultsHash)
