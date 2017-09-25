@@ -2,9 +2,9 @@ require_relative 'session_setup'
 
 @client = redboothInit
 
-# userArg = ARGV.join(" ").downcase
+userArg = ARGV.join(" ").downcase
 # line below for console testing
-userArg = "Get Sketch Licenses for James and Brian".downcase
+# userArg = "Get Sketch Licenses for James and Brian".downcase
 
 resultsHash = {"items": []}
 
@@ -24,5 +24,5 @@ results.each do |i|
     resultsHash[:items].push(results_obj)
   end
 end
-puts "results: ", resultsHash
-# puts JSON.generate(resultsHash)
+# puts "results: ", resultsHash
+puts JSON.generate(resultsHash)
