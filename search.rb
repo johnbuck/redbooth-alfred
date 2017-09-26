@@ -4,21 +4,21 @@ require_relative 'session_setup'
 
 userArg = ARGV.join(" ").downcase
 # line below for console testing
-# userArg = "ipad pro".downcase
+# userArg = "URL".downcase
 
 results = @client.search.response.data
 
-resultsHash = {"items": []}
+resultsHash = []
 
 results.each do |i|
   if i["title"].downcase.include?(userArg)
     results_obj = {
-          "type": i['target_type'],
+          "type": "file",
           "title": i['title'],
           "subtitle": "open '#{i['title']}' in Redbooth",
-          "arg": i['parent_id'] #project id
+          "arg": i['parent_id']
         }
-    resultsHash[:items].push(results_obj)
+    resultsHash.push(results_obj)
   end
 end
 # puts "results hash: ", resultsHash
